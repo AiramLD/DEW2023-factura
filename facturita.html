@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <center>
+<form action="" method="post">
+  <p>
+    <label for="concepto">Concepto: </label><input type="text" id="concepto"><br/>
+  </p>
+  <p>
+    <label for="cantidad">Cantidad: </label><input type="number" id="cantidad"><br/>
+  </p>
+  <p>
+    <label for="precio">Precio: </label><input type="number" id="precio"><br/>
+  </p>
+  <p>
+    <button id="agregar">Insertar</button>
+  </p>
+  </form>
+  //la tabla tiene que tener thead, tbody y tfoot
+  <table id="factura">
+    <thead>
+      <tr>
+        <th>Concepto</th>
+        <th>Cantidad</th>
+        <th>PrecioUnitario</th>
+        <th>PrecioTotal</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+    </tfoot>
+  </table>
+</center>
+<script>
+  //funcion que me inserta el objeto a la tabla
+  function insertar(){
+    let fila = document.createElement('TR');
+   let td_concepto = document.createElement('TD');
+   let td_cantidad = document.createElement('TD');
+   let td_precio = document.createElement('TD');
+   let td_total = document.createElement('TD');
+   let td_borrar = document.createElement('TD');
+   let concepto = document.getElementById('concepto').value;
+   let cantidad = document.getElementById('cantidad').value;
+   let precio = document.getElementById('precio').value;
+   let total = document.getElementById('total').value;
+   let borrar = document.getElementById('borrar').value;
+   td_concepto.innerHTML = concepto;
+   td_cantidad.innerHTML = cantidad;
+   td_precio.innerHTML = precio;
+   td_total.innerHTML = total;
+   td_borrar.innerHTML = borrar;
+   fila.appendChild(td_concepto);
+   fila.appendChild(td_cantidad);
+   fila.appendChild(td_precio);
+   fila.appendChild(td_total);
+   fila.appendChild(td_borrar);
+   document.getElementById('factura').appendChild(fila);
+  }
+  //funcion para eliminar una fila de la tabla
+  function eliminarFila(id){
+    document.getElementById(id).remove();
+  }
+  //funcion que calcula el subtotal y lo pone en un input oculto
+  function calcularSubtotal(){
+    let cantidad = document.getElementById('cantidad').value;
+    let precio = document.getElementById('precio').value;
+    let total = document.getElementById('total').value;
+    total = cantidad * precio;
+    document.getElementById('subtotal').value = total;
+  }
+  //funcion que suma los totales de las facturas
+  function sumarTotales(){
+    let subtotal = document.getElementById('subtotal').value;
+    let total = document.getElementById('total').value;
+    total = parseInt(subtotal) + parseInt(total);
+    document.getElementById('total').value = total;
+  }
+  //funcion que calcula el impuesto y lo pone en un input oculto
+  function calcularImpuestos(){
+    let total = document.getElementById('total').value;
+    let impuestos = document.getElementById('impuestos').value;
+    total = total * impuestos;
+    document.getElementById('total').value = total;
+    }
+  //funcion que calcula el total y lo pone en un input oculto
+  function calcularTotal(){
+    let subtotal = document.getElementById('subtotal').value;
+    let impuestos = document.getElementById('impuestos').value;
+    let total = document.getElementById('total').value;
+    total = parseInt(subtotal) + parseInt(impuestos);
+    document.getElementById('total').value = total;
+    }
+
+</script>
+
+</body>
+</html>

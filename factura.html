@@ -1,0 +1,86 @@
+<!DOCTYPE html>s
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  
+  table {
+    td {
+      border: 1px solid white;
+    border-collapse: collapse;    
+    padding: 2px, 5px;
+  }
+    thead {
+      border: 1px solid blue;
+      text-align: center;
+
+    }
+    tbody {
+      border: 1px solid lightblue;
+      text-align: center;
+      }
+    tfoot {
+      border: 1px solid black;
+      text-align: center;
+      }
+    }     
+</style>
+<body>
+  //quiero crear una factura con html y javascript que me de un concepto una cantidad
+  //y un precio , despues de esto quiero un boton que inserte lo anterior a una tabla y
+  //que en esa tabla se calcule el precio total aparte de poner en la tabla una X para cuando
+  //le de se borre de la tabla el objeto luego poner unos impuestos añadidos que van a ir cambiando
+  //a medida que le des a un boton
+  <div class="container">
+    <center>
+    <h2>Facturacion</h2>
+    <form action="" method="post">
+      <p>
+        <label for="concepto">Concepto:</label>
+        <input type="text" id="concepto" name="concepto">
+      </p>
+      <p>
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" name="cantidad">
+     </p>
+    
+      <p>
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" name="precio">
+      </p>
+      <p>
+        <button id="agregar">Insertar</button>
+      </p>  
+    </form>
+  
+    <table id="factura">
+      <thead>
+          <tr>
+              <th>Concepto</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Total</th>
+              <th>Eliminar</th>
+          </tr>
+      </thead>
+      <tbody>
+        </tbody>
+      
+      <tfooter>
+           <td colspan="3"></td>
+      </tbody>
+      <tfooter>
+          
+      </tfooter>
+      
+    </table>
+    <br><br>
+      </form>
+    </center>
+  </div>
+     
+</body>
+</html>
